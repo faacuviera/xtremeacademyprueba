@@ -1,4 +1,4 @@
-/** Xtreme Academy - Cuentas (PWA)
+/** Flux - Cuentas (PWA)
  *  - Guardado local en IndexedDB
  *  - Plantillas (meses) con tablas: ingresos, gastos, cxc, cxp, inventario
  */
@@ -262,7 +262,7 @@ function addCuotaPendiente(active, alumno) {
 
 
 /* ---------- IndexedDB minimal wrapper ---------- */
-const DB_NAME = "xtremeCuentasDB";
+const DB_NAME = "fluxCuentasDB";
 const DB_VER = 2;
 
 function openDB(){
@@ -2231,7 +2231,7 @@ function exportBackup(){
     templates: buildBackupTemplates()
   };
   const blob = new Blob([JSON.stringify(payload,null,2)], {type:"application/json"});
-  download(`xtreme-backup-${monthISO()}.json`, blob);
+  download(`flux-backup-${monthISO()}.json`, blob);
 }
 
 async function importBackup(e){
@@ -2478,7 +2478,7 @@ function exportCSV(listName){
   if(listName==="cxp") headers=["vence","proveedor","concepto","monto","estado","notas"];
   if(listName==="inventario") headers=["categoria","producto","stock","minimo","costo"];
   const csv = toCSV(rows, headers);
-  download(`xtreme-${t.name}-${listName}.csv`, new Blob([csv],{type:"text/csv"}));
+  download(`flux-${t.name}-${listName}.csv`, new Blob([csv],{type:"text/csv"}));
 }
 
 async function exportAllZip(){
@@ -2563,7 +2563,7 @@ async function exportAllZip(){
   ]);
 
   const zipBlob = new Blob([...chunks, centralBlob, eocd], {type:"application/zip"});
-  download(`xtreme-${t.name}-csv.zip`, zipBlob);
+  download(`flux-${t.name}-csv.zip`, zipBlob);
 
   function concat(arr){
     // arr: (Uint8Array)[]
