@@ -61,7 +61,15 @@ header{
   }
 }
 .brand{display:flex;gap:10px;align-items:center}
-.brand img{width:32px;height:32px;border-radius:10px;border:1px solid var(--border);}
+.brand .logo-text{
+  min-width:42px;
+  padding:6px 8px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  font-weight:700;
+  letter-spacing:1px;
+  text-align:center;
+}
 .brand .t{display:flex;flex-direction:column;line-height:1.1}
 .brand .t strong{font-size:14px}
 .brand .t span{font-size:12px;color:var(--muted)}
